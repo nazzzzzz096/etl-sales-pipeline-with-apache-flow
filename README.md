@@ -1,6 +1,7 @@
-# 🛠️ ETL Sales Pipeline with Apache Airflow
 
-This project implements an end-to-end ETL pipeline using **Apache Airflow**, **AWS S3**, **AWS Glue**, and **Amazon Redshift**. It automates the daily ingestion, transformation, and loading of synthetic sales data.
+# 🛠️ ETL Sales Pipeline with Apache Airflow, AWS & Power BI
+
+This project implements an end-to-end ETL pipeline using **Apache Airflow**, **AWS S3**, **AWS Glue**, **Amazon Redshift**, and **Power BI**. It automates the daily ingestion, transformation, loading, and visualization of synthetic sales data.
 
 ---
 
@@ -19,6 +20,11 @@ This project implements an end-to-end ETL pipeline using **Apache Airflow**, **A
 - **Loads** the processed data from S3 into an **Amazon Redshift** table using the `COPY` command.
 - Requires a pre-configured **IAM Role** with Redshift COPY permissions.
 
+### 4. Power BI Dashboard
+- Connects directly to **Amazon Redshift**.
+- Visualizes daily sales trends, customer metrics, and order amounts.
+- Provides real-time business insights via an interactive dashboard.
+
 ---
 
 ## 🔧 Technologies Used
@@ -27,6 +33,7 @@ This project implements an end-to-end ETL pipeline using **Apache Airflow**, **A
 - **AWS S3**: Raw and processed data storage
 - **AWS Glue**: Data transformation
 - **Amazon Redshift**: Data warehouse for loading final records
+- **Power BI**: Business reporting and interactive dashboards
 - **Python**: Task logic
 - **Boto3**: AWS SDK for Python
 
@@ -40,7 +47,7 @@ This project implements an end-to-end ETL pipeline using **Apache Airflow**, **A
 | `schedule`       | Daily at 2:00 AM UTC (`0 2 * * *`) |
 | `start_date`     | DAG starts from current date    |
 | `catchup`        | `False`                         |
-| `tags`           | `etl`, `s3`, `glue`, `redshift` |
+| `tags`           | `etl`, `s3`, `glue`, `redshift`, `powerbi` |
 
 ---
 
@@ -70,7 +77,8 @@ sales-data-pipeline-buckett/
 - [ ] Create and configure Redshift cluster and table (`public.sales_orders`)
 - [ ] Configure IAM role with Redshift and S3 access
 - [ ] Define Airflow connections: `aws_default`, `redshift_conn_id`
-- [ ] Create AWS Glue job named `clean_raw_sales_data`
+- [ ] Create an AWS Glue job named `clean_raw_sales_data`
+- [ ] Connect Power BI to Redshift to visualize sales metrics
 
 ---
 
@@ -79,9 +87,10 @@ sales-data-pipeline-buckett/
 1. Place `etl_sales_pipeline.py` into your Airflow DAGs directory.
 2. Ensure AWS credentials and Redshift access are configured in Airflow.
 3. Trigger the DAG manually or let it run based on its schedule.
+4. Use Power BI to connect to Redshift and create dashboards.
 
 ---
 
 ## 📜 License
 
-This project is licensed for educational and internal use. Customize it as needed for production deployment.
+This project is licensed for educational and internal use. Please make sure to customize it as needed for production deployment.
