@@ -91,6 +91,4 @@ sales-data-pipeline-buckett/
 
 ---
 
-## 📜 License
 
-This project is licensed for educational and internal use. Please make sure to customize it as needed for production deployment.
